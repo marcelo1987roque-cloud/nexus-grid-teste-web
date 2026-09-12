@@ -18,14 +18,14 @@ jobs:
 
       - name: Baixar build homologado
         run: |
-          curl -L --fail "https://sdmntprbrazilsouth.oaiusercontent.com/files/00000000-7f24-820e-a53e-f1a7b2285d7d/raw?se=2026-09-12T22%3A10%3A11Z&sp=r&sv=2026-02-06&sr=b&scid=f68800c8-3dd0-5109-b287-7fe7f5a40f3f&skoid=db6dad9e-03ee-465b-aef6-ce0f63a161dc&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-09-12T12%3A43%3A46Z&ske=2026-09-13T12%3A43%3A46Z&sks=b&skv=2026-02-06&sig=8xJ%2BaiIhHtCGidO74i/3WHa1E9fgHwZWgyfOH5a%2BehY%3D" -o build.zip
+          curl -L --fail "https://sdmntprbrazilsouth.oaiusercontent.com/files/00000000-01b8-820e-bd0e-c988300fcff5/raw?se=2026-09-12T23%3A12%3A45Z&sp=r&sv=2026-02-06&sr=b&scid=e757e479-0eb6-5295-afed-73a29a93f987&skoid=db6dad9e-03ee-465b-aef6-ce0f63a161dc&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-09-12T01%3A19%3A16Z&ske=2026-09-13T01%3A19%3A16Z&sks=b&skv=2026-02-06&sig=AUBkx07svPuiNuxi38BrPEoCtTeuZqgyVVxi1yhmzhY%3D" -o build.zip
           rm -rf _build
           mkdir _build
           unzip -q build.zip -d _build
 
       - name: Publicar somente arquivos compilados
         run: |
-          rm -rf assets index.html _redirects
+          rm -rf assets index.html _redirects pilot-hotfix.css
           cp -R _build/. .
           touch .nojekyll
           rm -rf _build build.zip
