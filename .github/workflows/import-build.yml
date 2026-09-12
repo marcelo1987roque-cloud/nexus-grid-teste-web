@@ -1,0 +1,36 @@
+name: Importar build NEXUS GRID TESTE
+
+on:
+  push:
+    paths:
+      - '.github/workflows/import-build.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  importar:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Baixar build homologado
+        run: |
+          curl -L --fail "https://sdmntprbrazilsouth.oaiusercontent.com/files/00000000-7f24-820e-a53e-f1a7b2285d7d/raw?se=2026-09-12T22%3A10%3A11Z&sp=r&sv=2026-02-06&sr=b&scid=f68800c8-3dd0-5109-b287-7fe7f5a40f3f&skoid=db6dad9e-03ee-465b-aef6-ce0f63a161dc&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-09-12T12%3A43%3A46Z&ske=2026-09-13T12%3A43%3A46Z&sks=b&skv=2026-02-06&sig=8xJ%2BaiIhHtCGidO74i/3WHa1E9fgHwZWgyfOH5a%2BehY%3D" -o build.zip
+          rm -rf _build
+          mkdir _build
+          unzip -q build.zip -d _build
+
+      - name: Publicar somente arquivos compilados
+        run: |
+          rm -rf assets index.html _redirects
+          cp -R _build/. .
+          touch .nojekyll
+          rm -rf _build build.zip
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Publicar build homologado do NEXUS GRID TESTE" || exit 0
+          git push
