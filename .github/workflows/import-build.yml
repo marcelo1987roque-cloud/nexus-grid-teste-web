@@ -18,7 +18,7 @@ jobs:
 
       - name: Baixar build homologado
         run: |
-          curl -L --fail "https://sdmntprbrazilsouth.oaiusercontent.com/files/00000000-7090-820e-9f2b-59bff4e1a497/raw?se=2026-09-12T23%3A17%3A28Z&sp=r&sv=2026-02-06&sr=b&scid=057d5b59-410f-54df-9c4e-61d2e29a53ae&skoid=db6dad9e-03ee-465b-aef6-ce0f63a161dc&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-09-12T13%3A19%3A40Z&ske=2026-09-13T13%3A19%3A40Z&sks=b&skv=2026-02-06&sig=yADQ40bB/abSlFv%2B32E/wVz0h5E1mL/C73jtjIVByWw%3D" -o build.zip
+          curl -L --fail "https://sdmntprbrazilsouth.oaiusercontent.com/files/00000000-007c-820e-9a0a-59217f5f80e3/raw?se=2026-09-12T23%3A24%3A00Z&sp=r&sv=2026-02-06&sr=b&scid=dadfd208-f2a3-5840-bff7-91ac0ec4a676&skoid=db6dad9e-03ee-465b-aef6-ce0f63a161dc&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-09-12T12%3A43%3A51Z&ske=2026-09-13T12%3A43%3A51Z&sks=b&skv=2026-02-06&sig=fCG9vZpwHiiWhFRk4oEVudNale/qTr%2BsCCkm8G%2BGcdM%3D" -o build.zip
           rm -rf _build
           mkdir _build
           unzip -q build.zip -d _build
