@@ -1,22 +1,39 @@
-/* NEXUS GRID — correção estrutural do menu lateral no desktop */
+/* NEXUS GRID — correção robusta do menu lateral no desktop */
 @media (min-width: 931px) {
   .app-shell,
   .app-shell.sidebar-collapsed {
-    display: block;
+    display: block !important;
+    grid-template-columns: none !important;
     min-height: 100vh;
+    position: relative;
   }
 
-  .app-main {
-    box-sizing: border-box;
-    margin-left: 268px;
-    width: calc(100% - 268px);
-    min-width: 0;
-    transition: margin-left .22s ease, width .22s ease;
-  }
-
+  .app-main,
   .app-shell.sidebar-collapsed .app-main {
-    margin-left: 0;
-    width: 100%;
+    box-sizing: border-box;
+    margin-left: 0 !important;
+    width: 100% !important;
+    max-width: none !important;
+    min-width: 0 !important;
+  }
+
+  .topbar {
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+  }
+
+  .workspace {
+    box-sizing: border-box;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding-left: calc(268px + clamp(20px, 3vw, 48px)) !important;
+    transition: padding-left .22s ease;
+  }
+
+  .app-shell.sidebar-collapsed .workspace {
+    padding-left: clamp(20px, 3vw, 48px) !important;
   }
 
   .app-shell:not(.sidebar-collapsed) .sidebar {
