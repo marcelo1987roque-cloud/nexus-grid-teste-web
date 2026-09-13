@@ -1,0 +1,24 @@
+/* NEXUS GRID — correção homologada do menu lateral no desktop */
+@media (min-width: 931px) {
+  .app-main {
+    box-sizing: border-box;
+    margin-left: 268px;
+    width: calc(100% - 268px);
+    transition: margin-left .22s ease, width .22s ease;
+  }
+
+  .app-shell.sidebar-collapsed .app-main {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .app-shell:not(.sidebar-collapsed) .sidebar {
+    transform: translateX(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .app-shell:not(.sidebar-collapsed) .sidebar-backdrop {
+    display: none !important;
+  }
+}
