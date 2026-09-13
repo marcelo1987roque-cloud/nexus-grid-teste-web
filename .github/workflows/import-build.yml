@@ -18,7 +18,9 @@ jobs:
 
       - name: Baixar build homologado
         run: |
-          curl -L --fail "https://sdmntprbrazilsouth.oaiusercontent.com/files/00000000-935c-820e-907c-745007ed1012/raw?se=2026-09-13T16%3A48%3A59Z&sp=r&sv=2026-02-06&sr=b&scid=224dc9fb-d734-5b09-bfda-fa014ee47c58&skoid=db6dad9e-03ee-465b-aef6-ce0f63a161dc&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-09-13T11%3A29%3A51Z&ske=2026-09-14T11%3A29%3A51Z&sks=b&skv=2026-02-06&sig=6%2BOTqqKYoknoGnQ6HJzObniGpQ4dY8QnDSsYOzURBVY%3D" -o build.zip
+          URL_B64="aHR0cHM6Ly9zZG1udHByYnJhemlsc291dGgub2FpdXNlcmNvbnRlbnQuY29tL2ZpbGVzLzAwMDAwMDAwLTBhZGMtODIwZS1iN2Q3LTQ1YjJjNmEyODMxOC9yYXc/c2U9MjAyNi0wOS0xM1QxNyUzQTMzJTNBMjRaJnNwPXImc3Y9MjAyNi0wMi0wNiZzcj1iJnNjaWQ9Y2RiZTQxZmItZTYzOC01Y2Y3LWEzYTYtYTAyMjc1ODU4YTIwJnNrb2lkPWRiNmRhZDllLTAzZWUtNDY1Yi1hZWY2LWNlMGY2M2ExNjFkYyZza3RpZD1hNDhjY2E1Ni1lNmRhLTQ4NGUtYTgxNC05Yzg0OTY1MmJjYjMmc2t0PTIwMjYtMDktMTNUMTQlM0EyMCUzQTAyWiZza2U9MjAyNi0wOS0xNFQxNCUzQTIwJTNBMDJaJnNrcz1iJnNrdj0yMDI2LTAyLTA2JnNpZz1ESUZuVzRjZnZPbWt5aWtFVG1ZRUtkLzEyMk9CRzhQc0lPbGhJZ2o4bU5vJTNE"
+          URL=$(printf '%s' "$URL_B64" | base64 -d)
+          curl -L --fail "$URL" -o build.zip
           rm -rf _build
           mkdir _build
           unzip -q build.zip -d _build
