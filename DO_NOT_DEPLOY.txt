@@ -1,0 +1,12 @@
+NEXUS GRID — ARTEFATO INVALIDADO PARA PROD
+Data: 2026-09-19
+
+Motivo:
+A captura fornecida pelo usuário comprovou que este artefato não corresponde ao frontend TESTE aprovado atualmente.
+
+Regra:
+NÃO publicar esta branch como frontend PROD.
+A promoção permanece bloqueada até a origem exata do frontend TESTE aprovado ser identificada.
+
+Exceção aprovada:
+A tela pública de login pode preservar a textura/identidade visual aprovada, sem alterar as telas autenticadas.
