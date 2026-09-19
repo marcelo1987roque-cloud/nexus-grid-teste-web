@@ -1,0 +1,51 @@
+NEXUS GRID PROD RC1 — PARITY MANIFEST
+Date: 2026-09-19
+
+FRONTEND SOURCE
+Approved TESTE source commit: ba26ca192a871d8038b2982124f0bb5e4bcdea3d
+TESTE bundle blob: 35cebd1eb895ee40863b65307c774fe5e3566d3a
+PROD bundle blob: 86c1fd5cb4e412242d1404343f4dbaabf2845981
+PROD artifact commit: d58117ea8deba2f36cfdc7fbb910b44b813beb00
+Normalized frontend equality: PASS
+Only intentional bundle differences:
+- Supabase URL: TESTE -> PROD
+- Supabase publishable key: TESTE -> PROD
+
+BACKEND
+TESTE project: shmuzovepigwwqlknejn
+PROD project: khzrqwkhiawakzvzpbch
+
+Structural parity checks: PASS
+Matched categories:
+- columns
+- constraints
+- enums
+- functions
+- indexes
+- policies
+- relations
+- sequences
+- triggers
+- views
+- table grants
+- function ACLs
+- sequence grants
+- routine grants (normalized without internal specific_name)
+
+PROD ACCESS
+Auth users: 1
+Profiles: 1
+Active memberships: 1
+Active contexts: 1
+Admin link to NEXUS GRID company: 1
+Access restored from PROD pre-clone backup; TESTE user IDs were not copied.
+
+SECURITY ADVISORS
+- authenticated_security_definer_function_executable: 244 WARN (expected API-wrapper design; not auto-remediated)
+- auth_leaked_password_protection: 1 WARN (not changed during parity promotion)
+
+DEPLOYMENT STATUS
+Static PROD artifact: READY
+Public PROD URL: NOT DEPLOYED
+Reason: connected hosting integration reported deploy command unavailable in this session.
+No claim of public deployment should be made until a hosting deployment succeeds and is verified.
